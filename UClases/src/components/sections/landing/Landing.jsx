@@ -12,7 +12,7 @@ function Landing() {
         <section id='landing-section'>
             <div className='landing-container'>
                 <div id='landing-animation'>
-                    <img src='/src/assets/img/saturno.png' height='400px'/>
+                    <img src={require('../../../assets/img/saturno.png')} height='400px'/>
                 </div>
                 <div id='landing-options'>
                     <h1>Enseña y aprende de los mejores</h1>
