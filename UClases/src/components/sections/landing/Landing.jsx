@@ -3,6 +3,7 @@ import LogoutButton from '../../forms/session/Logout';
 import './Landing.css';
 import { AuthContext } from '../../../auth/AuthContext';
 import { useContext } from 'react';
+import SaturnoImage from "../../../assets/img/saturno.png"
 
 function Landing() {
     const {token} = useContext(AuthContext);
@@ -12,7 +13,7 @@ function Landing() {
         <section id='landing-section'>
             <div className='landing-container'>
                 <div id='landing-animation'>
-                    <img src={require('../../../assets/img/saturno.png')} height='400px'/>
+                    <img src={SaturnoImage} height='400px'/>
                 </div>
                 <div id='landing-options'>
                     <h1>Enseña y aprende de los mejores</h1>
