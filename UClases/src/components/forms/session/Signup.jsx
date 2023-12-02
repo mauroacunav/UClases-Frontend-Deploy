@@ -3,6 +3,7 @@ import './Session.css';
 import axios from 'axios';
 import { AuthContext } from '../../../auth/AuthContext';
 import API_URL from '../../../config';
+import SaturnoImage from '../../../assets/img/saturno.png';
 
 function Signup() {
     const {token, setToken} = useContext(AuthContext);
@@ -73,7 +74,7 @@ function Signup() {
             <section className='session-section'>
                 <div id='signup-container' className='session-container'>
                     <div className='session-title'>
-                        <img src='/src/assets/img/saturno.png' height='50px' alt='Logo' />
+                        <img src={SaturnoImage} height='50px' alt="Saturno"/>
                         <p>Crea tu cuenta y únete a nuestra comunidad</p>
                     </div>
                     <div className='session-form'>

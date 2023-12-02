@@ -3,6 +3,7 @@ import './Session.css';
 import axios from 'axios';
 import { AuthContext } from '../../../auth/AuthContext';
 import API_URL from '../../../config';
+import SaturnoImage from '../../../assets/img/saturno.png';
 
 function Login() {
     const {token, setToken} = useContext(AuthContext);
@@ -61,7 +62,7 @@ function Login() {
             <section className='session-section'>
                 <div id='login-container' className='session-container'>
                     <div className='session-title'>
-                        <img src='/src/assets/img/saturno.png' height='50px' alt="Saturno"/>
+                        <img src={SaturnoImage} height='50px' alt="Saturno"/>
                         <p>Bienvenido</p>
                     </div>
 
