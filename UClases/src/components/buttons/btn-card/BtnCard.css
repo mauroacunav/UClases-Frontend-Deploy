@@ -1,0 +1,14 @@
+#Btn-card {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4c7bda;
+    padding: 0.5em 1.25em;
+    border: 0px;
+    border-radius: 0.5em;
+}
+
+#Btn-card:hover {
+    background-color: #2a65c7;
+}

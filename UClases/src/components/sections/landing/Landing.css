@@ -1,0 +1,33 @@
+#landing-section {
+    height: 100vh;
+    display: flex;
+    background-color: #cbdad5;
+}
+
+#landing-section .landing-container {
+    height: 80vh;
+    width: 100%;
+    margin: 10vh;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+#landing-section .landing-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#landing-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#landing-options div {
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+}

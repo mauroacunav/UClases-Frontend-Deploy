@@ -1,0 +1,62 @@
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.5s;
+    z-index: 1000;
+}
+
+#navbar.scrolled {
+    background-color: #cbdad5;
+}
+
+#navbar div {
+    margin: 2vh 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar div a {
+    text-decoration: none;
+    color: black;
+}
+
+#navbar-logo {
+    gap: 4vh;
+}
+
+#navbar-options ul {
+    list-style: none;
+    padding: 0%;
+    display: flex;
+    gap: 4vh;
+}
+
+#navbar-options ul li {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-option {
+    cursor: pointer;
+}
+
+.navbar-option ::after {
+    content: '';
+    width: 0%;
+    height: 4px;
+    background: #2a65c7;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.navbar-option :hover::after {
+    width: 100%;
+}

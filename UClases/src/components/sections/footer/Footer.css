@@ -1,0 +1,23 @@
+#footer {
+    height: 40vh;
+    background-color: #000000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#footer .section-footer {
+    color: #ffffff;
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.rrss-footer {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 10px;
+}

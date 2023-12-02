@@ -1,0 +1,99 @@
+#class-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#class-section .class-content {
+    margin: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10vh;
+}
+
+.class-information {
+    background-image: url(../../../assets/img/wallpaper.jpg);
+    background-size: cover;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.class-information div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#class-basics {
+    color: #ffffff;
+}
+
+#class-details {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+#class-details ul {
+    list-style: none;
+}
+
+#contact-btn {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #4c7bda;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#contact-btn:hover {
+    background-color: #2a65c7;
+}
+
+.class-reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#class-review-title {
+    text-align: center;
+}
+
+#class-review-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#resenas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.resena-card {
+    height: 25vh;
+    border: 2px solid #cbdad5; 
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.resena-card:hover {
+    height: 25vh;
+    border: 2px solid #2a65c7; 
+    border-radius: 10px;
+}

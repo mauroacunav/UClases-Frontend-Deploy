@@ -1,0 +1,67 @@
+.card {
+    color: #ffffff;
+    background-image: url(../../assets/img/wallpaper.jpg);
+    background-size: cover;
+    padding: 10rem 0 0;
+    max-width: 40ch;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.card-content {
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(
+        hsl(0 0% 0% / 0),
+        hsl(0 0% 0% / 0.3) 20%,
+        hsl(0 0% 0% / 0.8)
+    );
+    transform: translateY(40%);
+    transition: 0.5s;
+}
+
+.card:hover .card-content {
+    transform: translateY(0);
+}
+
+.card-title {
+    position: relative;
+    width: max-content;
+    max-width: 100%;
+}
+
+.card-title > * {
+    margin: 0px;
+}
+
+.card-body p {
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+
+.card-content .card-body > * {
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+
+.card:hover .card-content .card-body > * {
+    opacity: 1;
+}
+
+.card-title::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    left: calc(var(--padding) * -1);
+    bottom: -8px;
+    width: calc(100% + var(--padding));
+    background-color: #4c7bda;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-title::after {
+    transform: scaleX(1);
+}

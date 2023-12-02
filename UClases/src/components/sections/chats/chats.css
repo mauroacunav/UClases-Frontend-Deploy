@@ -1,0 +1,93 @@
+.chat-page {
+    display: flex;
+    height: 90vh;
+    margin-top: 10vh;
+}
+
+.contacts-column {
+    width: 25%;
+    overflow-y: auto;
+}
+
+.contacts-column h2 {
+    padding-left: 40px;
+}
+
+.contact {
+    padding: 40px;
+    cursor: pointer;
+}
+
+.contact.active {
+    background-color: #cbdad5;
+}
+.message {
+    /* Estilos comunes para todos los mensajes */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 60%;
+}
+
+.sent {
+    /* Mensajes enviados por el usuario actual */
+    background-color: #daf8cb; /* color de fondo para mensajes enviados */
+    margin-left: auto; /* Alinea a la derecha */
+    text-align: right;
+}
+
+.received {
+    /* Mensajes recibidos de otros usuarios */
+    background-color: #f1f0f0; /* color de fondo para mensajes recibidos */
+    margin-right: auto; /* Alinea a la izquierda */
+    text-align: left;
+}
+
+.chat-column {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    overflow-y: auto;
+}
+
+.message-area {
+    height: 70vh;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction:column;
+}
+.message-input {
+    display: flex;
+    padding: 10px;
+}
+
+.message-input input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.message-input button {
+    padding: 10px 20px;
+}
+.welcome-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.welcome-message h2 {
+    font-size: 2em;
+    color: #4a90e2; /* O el color que prefieras */
+    margin-bottom: 20px;
+}
+
+.welcome-message p {
+    font-size: 1.2em;
+    color: #333; /* O el color que prefieras */
+}
