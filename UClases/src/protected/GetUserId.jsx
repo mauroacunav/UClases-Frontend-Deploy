@@ -5,7 +5,7 @@ function GetUserId() {
 
     const {token} = useContext(AuthContext);
 
-    if (token == 'null' || token == 'undefined' || token === null || typeof token !== 'string') {
+    if (token === 'null' || token === null) {
         return null;
     }
 

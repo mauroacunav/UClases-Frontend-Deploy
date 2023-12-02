@@ -33,7 +33,7 @@ function Navbar() {
         <nav id='navbar' className={!scrolling && isSpecialPage ? 'scrolled' : ''}>
             <div id='navbar-logo'>
                 <a href='/'><h1>UClases</h1></a>
-                {token === 'null' ? (
+                {(token === 'null' || token === null) ? (
                     null
                 ) : (
                     <a href={`/dashboard/${GetUserId()}`}><BtnSecondary label='Mi Dashboard'/></a>
