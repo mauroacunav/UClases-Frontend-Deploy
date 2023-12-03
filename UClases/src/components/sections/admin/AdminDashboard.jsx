@@ -8,18 +8,16 @@ function AdminDashboard() {
     return (
         <>
         <section id='admin-section'>
-            <div>
-                {isadmin ? (
-                    <div className='admin-container'>
-                        Bienvenido admin, este es tu dashboard
-                        <CourseHandler />
-                    </div>
-                ) : (
-                    <div className='admin-container'>
-                        No cuentas con los permisos para acceder a esta sección
-                    </div>
-                )}
-            </div>
+            {isadmin ? (
+                <div className='admin-container'>
+                    Bienvenido admin, este es tu dashboard
+                    <CourseHandler />
+                </div>
+            ) : (
+                <div className='admin-container'>
+                    No cuentas con los permisos para acceder a esta sección
+                </div>
+            )}
         </section>
         </>
     );

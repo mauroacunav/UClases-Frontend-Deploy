@@ -1,11 +1,40 @@
 #dashboard-section {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    margin-top: 10vh;
 }
 
 .dashboard-container {
-    margin: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
+    gap: 20px;
     width: 100%;
+    max-width: 1200px; /* Ajusta según tus necesidades */
+    margin: 0 auto;
 }
+
+.left-section {
+    /* Ocupará toda la columna izquierda */
+}
+
+.right-section {
+    /* Ocupará toda la columna derecha */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .dashboard-container {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas más pequeñas */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Ajustes adicionales para pantallas aún más pequeñas, si es necesario */
+}
+

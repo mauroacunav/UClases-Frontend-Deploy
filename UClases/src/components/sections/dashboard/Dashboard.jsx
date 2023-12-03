@@ -6,6 +6,7 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../../../auth/AuthContext';
 import axios from 'axios';
 import API_URL from '../../../config';
+import CreateAprobado from '../../forms/createaprobado/CreateAprobado';
 
 
 function Dashboard () {
@@ -45,15 +46,21 @@ function Dashboard () {
     return (
         <section id='dashboard-section'>
             <div className='dashboard-container'>
-                <Profile />
-                {isuser ? (
-                    <CreateClassForm />
-                ) : (
-                    null
+                <div className='left-section'>
+                    <Profile />
+                </div>
+                {isuser && (
+                    <>
+                        <div className='right-column'>
+                            <CreateClassForm />
+                            <CreateAprobado />
+                        </div>
+                    </>
                 )}
             </div>
-        </section> 
+        </section>
     );
+
 };
 
 export default Dashboard;

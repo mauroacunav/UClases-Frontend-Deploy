@@ -54,14 +54,12 @@ function UpdateReview () {
     }, [token]);
 
     return (
-        <section id='dashboard-section'>
-            <div className='dashboard-container'>
-                {isuser ? (
-                    <UpdateReviewForm />
-                ) : (
-                    <p>No tienes acceso para editar este recurso</p>
-                )}
-            </div>
+        <section id='review-section'>
+            {isuser ? (
+                <UpdateReviewForm />
+            ) : (
+                <p>No tienes acceso para editar este recurso</p>
+            )}
         </section> 
     );
 };

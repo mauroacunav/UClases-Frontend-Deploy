@@ -1,6 +1,35 @@
 #presentation-section {
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.presentation-box {
+    background-color: #ffffff;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 70%;
+    height: 20vh;
+    margin: 20px;
+    border-radius: 10px;
+    transform: translateX(400%);
+    transition: transform 0.8s ease;
+}
+
+.presentation-box h2 {
+    color: #2a65c7;
+}
+
+.presentation-box:nth-of-type(even) {
+    transform: translateX(-400%);
+}
+
+.presentation-box.show {
+    transform: translateX(0);
 }

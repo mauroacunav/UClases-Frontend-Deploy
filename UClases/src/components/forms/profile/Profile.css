@@ -1,14 +1,42 @@
 #profile-section {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20vh;
-    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-#catalogue-grid {
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-details, .profile-classes, .profile-approved-courses {
+    margin-bottom: 20px;
+}
+
+#catalogue-grid-p, #approved-courses-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 400px; /* Ajusta según la necesidad */
+}
+
+.profile-approved-courses {
+    /* Estilos para la sección de cursos aprobados */
+    margin-bottom: 20px;
+}
+
+#approved-courses-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    max-height: 150px; /* Altura fija reducida para la sección */
+    border: 1px solid #cbdad5; /* Opcional: para dar un borde a la sección */
+    padding: 10px; /* Opcional: para un poco de espacio interno */
+    border-radius: 8px; /* Opcional: para bordes redondeados */
 }

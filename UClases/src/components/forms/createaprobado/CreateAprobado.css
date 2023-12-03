@@ -1,0 +1,46 @@
+.create-aprobado-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.create-aprobado-title {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.create-aprobado-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-control {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #cbdad5;
+    font-size: 16px;
+}
+
+.submit-button {
+    background-color: #cbdad5;
+    color: #000000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #b0c8bf;
+}

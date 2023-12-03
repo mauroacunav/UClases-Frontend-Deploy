@@ -13,14 +13,19 @@ function Profile() {
     const { token } = useContext(AuthContext);
 
     const [profileData, setProfileData] = useState({});
+    const [classesData, setClassesData] = useState([]);
+    const [approvedCourses, setApprovedCourses] = useState([]);
+
     useEffect(() => {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        // Obtener información del perfil
         const fetchProfileData = async () => {
             try {
-                const config = {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                };
                 const response = await axios.get(`${API_URL}/usuarios/read?id=${user_id}`, config);
                 const user_data = response.data[0];
                 setProfileData(user_data);
@@ -29,49 +34,68 @@ function Profile() {
             }
         };
 
-        fetchProfileData();
-    }, [user_id, token]);
-
-    const [classesData, setClassesData] = useState([]);
-    useEffect(() => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        };
-        axios.get(`${API_URL}/clases/read?user_id=${user_id}`, config)
-            .then((response) => {
-                const clases = response.data;
-                setClassesData(clases)
-            })
-            .catch((error) => {
+        // Obtener clases
+        const fetchClassesData = async () => {
+            try {
+                const response = await axios.get(`${API_URL}/clases/read?user_id=${user_id}`, config);
+                setClassesData(response.data);
+            } catch (error) {
                 console.error('Error al obtener los datos de las clases', error);
-            });
+            }
+        };
+
+        // Obtener cursos aprobados
+        const fetchApprovedCourses = async () => {
+            try {
+                const response = await axios.get(`${API_URL}/aprobados/read/${user_id}`, config);
+                const approvedCoursesIds = response.data.map(course => course.course_id);
+
+                const coursesDetails = await Promise.all(approvedCoursesIds.map(async (id) => {
+                    const response = await axios.get(`${API_URL}/cursos/read?id=${id}`);
+                    return response.data[0];
+                }));
+
+                setApprovedCourses(coursesDetails);
+            } catch (error) {
+                console.error('Error al obtener los cursos aprobados', error);
+            }
+        };
+
+        fetchProfileData();
+        fetchClassesData();
+        fetchApprovedCourses();
     }, [user_id, token]);
 
     return (
         <div id='profile-section'>
-            <h1>Información del perfil</h1>
-            <div>
-                <p>Nombre: {`${profileData.firstname} ${profileData.lastname}`}</p>
-                <p>Contacto: {profileData.email}</p>
-                {GetUserId() == user_id ? (
+            <div className="profile-header">
+                <h1>Información del perfil</h1>
+                {GetUserId() === user_id && (
                     <BtnPrimary label='Editar perfil' to={`/dashboard/${user_id}/edit`}/>
-                ) : (
-                    null
                 )}
             </div>
-            {user_id != '1' ? (
-                <h1>Clases ofrecidas por {profileData.firstname}</h1>
-            ) : (
-                null
-            )}
-            <div id='catalogue-grid'>
-                {classesData.map((clase) => (
-                    <div className='catalogue-card' key={clase.id}>
-                        <ClaseCard clase={clase} />
-                    </div>
-                ))}
+            <div className="profile-details">
+                <p>Nombre: {`${profileData.firstname} ${profileData.lastname}`}</p>
+                <p>Contacto: {profileData.email}</p>
+            </div>
+            <div className="profile-classes">
+                <h2>Clases ofrecidas por {profileData.firstname}</h2>
+                <div id='catalogue-grid-p'>
+                    {classesData.map((clase) => (
+                        <div className='catalogue-card' key={clase.id}>
+                            {/* Asumiendo que ClaseCard es un componente */}
+                            <ClaseCard clase={clase} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="profile-approved-courses">
+                <h2>Cursos Aprobados</h2>
+                <div id='approved-courses-list'>
+                    {approvedCourses.map((course) => (
+                        <p key={course.id}>{course.name} ({course.code})</p>
+                    ))}
+                </div>
             </div>
         </div>
     );

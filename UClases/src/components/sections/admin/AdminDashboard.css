@@ -1,5 +1,6 @@
 #admin-section {
-    height: 100vh;
+    min-height: 100vh;
+    margin: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;

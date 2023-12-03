@@ -54,14 +54,12 @@ function CreateReview () {
     }, [token]);
 
     return (
-        <section id='dashboard-section'>
-            <div className='dashboard-container'>
-                {isnotuser ? (
-                    <p>No puedes crear reseñas</p>
-                ) : (
-                    <CreateReviewForm />
-                )}
-            </div>
+        <section id='review-section'>
+            {isnotuser ? (
+                <p>No puedes crear reseñas</p>
+            ) : (
+                <CreateReviewForm />
+            )}
         </section> 
     );
 };

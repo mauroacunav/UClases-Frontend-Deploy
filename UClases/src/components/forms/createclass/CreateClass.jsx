@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../../../auth/AuthContext';
 import GetUserId from '../../../protected/GetUserId';
 import API_URL from '../../../config';
+import './CreateClass.css';
 
 function CreateClassForm() {
     const { token } = useContext(AuthContext);
@@ -63,55 +64,68 @@ function CreateClassForm() {
     }, [courseIdToCreate]);
 
     return (
-        <div>
-            <h2>Crear clase</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
+        <div className="create-class-container">
+            <h2 className="create-class-title">Crear clase</h2>
+            <form onSubmit={handleSubmit} className="create-class-form">
+                <div className="form-group">
                     <label htmlFor="title">Título:</label>
                     <input
                         type="text"
                         id="title"
                         name="title"
+                        className="form-control"
                         value={formData.title}
                         onChange={handleChange}
                         required
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="description">Descripción:</label>
                     <textarea
                         id="description"
                         name="description"
+                        className="form-control"
                         value={formData.description}
                         onChange={handleChange}
                         required
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="price">Precio:</label>
                     <input
                         type="number"
                         id="price"
                         name="price"
+                        className="form-control"
                         value={formData.price}
                         onChange={handleChange}
                         required
                     />
                 </div>
-                <select value={courseIdToCreate} onChange={(e) => setCourseIdToCreate(e.target.value)}>
-                    <option value="">Seleccionar curso</option>
-                    {courses.map((course) => (
-                        <option key={course.id} value={course.id}>
-                            {course.name}
-                        </option>
-                    ))}
-                </select>
-                <div>
-                    <button type="submit">Crear</button>
+                <div className="form-group">
+                    <label htmlFor="course">Curso:</label>
+                    <select 
+                        id="course" 
+                        className="form-control"
+                        value={courseIdToCreate} 
+                        onChange={(e) => setCourseIdToCreate(e.target.value)}
+                        required
+                    >
+                        <option value="">Seleccionar curso</option>
+                        {courses.map((course) => (
+                            <option key={course.id} value={course.id}>
+                                {course.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-group">
+                    <button type="submit" className="submit-button">Crear</button>
                 </div>
             </form>
         </div>
     );
+
 }
 
 export default CreateClassForm;

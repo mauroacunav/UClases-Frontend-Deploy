@@ -3,10 +3,12 @@ import axios from 'axios';
 import { AuthContext } from '../../../auth/AuthContext';
 import { useParams } from 'react-router-dom';
 import API_URL from '../../../config';
+import SaturnoImage from '../../../assets/img/saturno.png';
+import './UpdateProfile.css';
 
 function UpdateProfile() {
     const { user_id } = useParams();
-    const {token} = useContext(AuthContext);
+    const { token } = useContext(AuthContext);
     const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
@@ -29,14 +31,11 @@ function UpdateProfile() {
                 },
             };
 
-            // Realizar la solicitud PUT o PATCH al endpoint de actualización de usuario
             const response = await axios.put(`${API_URL}/usuarios/update/${user_id}`, formData, config);
 
-            // Manejar la respuesta de la solicitud
             window.alert('Se ha actualizado el perfil');
             window.location.href = `/dashboard/${user_id}`;
         } catch (error) {
-            // Manejar cualquier error que pueda ocurrir durante la solicitud
             window.alert('No se ha podido actualizar el perfil');
             console.error('Error:', error);
         }
@@ -52,76 +51,83 @@ function UpdateProfile() {
                 },
             };
 
-            // Realizar la solicitud PUT o PATCH al endpoint de actualización de usuario
             const response = await axios.delete(`${API_URL}/usuarios/delete/${user_id}`, config);
 
-            // Manejar la respuesta de la solicitud
             window.alert('Usuario eliminado');
             window.location.href = `/`;
         } catch (error) {
-            // Manejar cualquier error que pueda ocurrir durante la solicitud
             window.alert('No se ha podido eliminar la cuenta');
             console.error('Error:', error);
         }
     };
 
     return (
-        <div>
-            <h2>Actualizar perfil</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="firstname">Nombre:</label>
-                    <input
-                        type="text"
-                        id="firstname"
-                        name="firstname"
-                        value={formData.firstname}
-                        onChange={handleChange}
-                        required
-                    />
+        <>
+            <section className='session-section'>
+                <div id='update-profile-container' className='session-container'>
+                    <div className='session-title'>
+                        <img src={SaturnoImage} height='50px' alt="Saturno"/>
+                        <h2>Actualizar perfil</h2>
+                    </div>
+
+                    <div className='session-form'>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                id="firstname"
+                                name="firstname"
+                                placeholder="Nombre"
+                                value={formData.firstname}
+                                onChange={handleChange}
+                                className="session-input"
+                                required
+                            />
+                            <input
+                                type="text"
+                                id="lastname"
+                                name="lastname"
+                                placeholder="Apellido"
+                                value={formData.lastname}
+                                onChange={handleChange}
+                                className="session-input"
+                                required
+                            />
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className="session-input"
+                                required
+                            />
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Contraseña"
+                                value={formData.password}
+                                onChange={handleChange}
+                                className="session-input"
+                                required
+                            />
+                            <div>
+                                <button type="submit" className="session-submit">Actualizar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="lastname">Apellido:</label>
-                    <input
-                        type="text"
-                        id="lastname"
-                        name="lastname"
-                        value={formData.lastname}
-                        onChange={handleChange}
-                        required
-                    />
+
+                <div className='session-delete'>
+                    <h1>Eliminar cuenta</h1>
+                    <div className='session-form'>
+                        <button onClick={handleDelete} className='session-submit'>Eliminar</button>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Contraseña:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <button type="submit">Actualizar</button>
-                </div>
-            </form>
-            <h2>Eliminar cuenta</h2>
-            <div>
-                <button onClick={handleDelete}>Eliminar</button>
-            </div>
-        </div>
+
+            </section>
+        </>
     );
 }
 

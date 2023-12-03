@@ -1,0 +1,89 @@
+.review-container {
+    width: 40vh;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid;
+    border-color: #cbdad5;
+    border-radius: 10px;
+}
+
+.review-container .review-title {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-container .review-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.review-input {
+    height: 50px;
+    width: 30vh;
+    padding-left: 10px;
+    border: 2px solid #cbdad5;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.review-input-d {
+    height: 100px;
+    width: 30vh;
+    padding-left: 10px;
+    border: 2px solid #cbdad5;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.review-input:focus {
+    outline: none;
+    border-color: #2a65c7;
+}
+
+.review-input-d:focus {
+    outline: none;
+    border-color: #2a65c7;
+}
+
+.review-submit {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #4c7bda;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.review-submit:hover {
+    background-color: #2a65c7;
+}
+
+.review-message {
+    height: 100px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-message p {
+    text-align: center;
+}
